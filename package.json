@@ -4,15 +4,27 @@
   "description": "webpack4 demo project",
   "author": "NeilWang",
   "license": "MIT",
+  "sideEffects": [
+    "./src/some-side-effectful-file.js",
+    "*.css"
+  ],
   "scripts": {
-    "build": "webpack --config webpack.config.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --open --config ./config/webpack.dev.js",
+    "build": "webpack --config ./config/webpack.prod.js"
   },
   "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.1.0",
+    "file-loader": "^4.1.0",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^0.23.1",
     "webpack": "^4.36.1",
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.7.2"
   },
   "dependencies": {
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.15",
+    "webpack-merge": "^4.2.1"
   }
 }

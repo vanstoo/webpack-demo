@@ -1,1 +1,26 @@
+# c.
+.DS_STORE
+
+# Node.
 node_modules
+npm-debug.log*
+package-lock.json
+
+# yarn
+yarn-error.log
+
+# lerna
+lerna-debug.log
+
+# project
+static
+dist
+build
+slothTemp
+
+# sloth
+slothTemp
+.sloth
+
+.idea/
+*.map
