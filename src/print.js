@@ -1,3 +1,4 @@
-export function printMe() {
-    console.log('Updating prinssssst')
+export default () =>{
+    console.log('Updating clicked')
+  
   }
