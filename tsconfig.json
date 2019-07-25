@@ -1,11 +1,15 @@
 {
   "compilerOptions": {
-    "outDir": "./build/",
     "sourceMap": true,
+    "moduleResolution": "node",
     "noImplicitAny": true,
     "module": "es6",
     "target": "es5",
+    "lib": ["es6", "dom", "es2017"],
+    "allowSyntheticDefaultImports": true,
     "jsx": "react",
-    "allowJs": true
-  }
+    "experimentalDecorators": true,
+  },
+  "exclude": ["__tests__"],
+  "include": ["src/**/*", "typings/*"]
 }

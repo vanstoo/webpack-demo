@@ -9,7 +9,9 @@ module.exports = {
   ],
   plugins: [
     new CleanWebpackPlugin(), // 每次build清除之前的文件
-    new HtmlWebpackPlugin(), // 生成html模版
+    new HtmlWebpackPlugin({
+      template: "./config/template.html",
+    }), // 生成html模版
   ],
   optimization: {
     runtimeChunk: 'single',
@@ -25,6 +27,13 @@ module.exports = {
   },
   module: {
     rules: [{
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader"
+        }
+      },
+      {
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
@@ -41,6 +50,28 @@ module.exports = {
         use: [
           'file-loader'
         ]
+      },
+      {
+        test: /\.less$/,
+        use: [{
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader', // translates CSS into CommonJS
+          },
+          {
+            loader: 'less-loader', // compiles Less to CSS
+            options: {
+              javascriptEnabled: true,
+              modifyVars: {
+                'primary-color': '#0055FF',
+                'success-color': '#00A186',
+                'warning-color': '#FFA400',
+                'error-color': '#E13C39',
+              },
+            },
+          },
+        ],
       }
     ]
   },
