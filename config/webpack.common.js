@@ -1,21 +1,21 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const {
+  CleanWebpackPlugin
+} = require('clean-webpack-plugin')
 
 module.exports = {
   entry: [
-    './src/index.js',
+    './src/index.js', // 入口文件
   ],
   plugins: [
-    new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      title: 'webpack起步'
-    }),
+    new CleanWebpackPlugin(), // 每次build清除之前的文件
+    new HtmlWebpackPlugin(), // 生成html模版
   ],
   optimization: {
     runtimeChunk: 'single',
     splitChunks: {
       cacheGroups: {
-        vendor:{
+        vendor: {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
           chunks: 'all'
@@ -24,8 +24,7 @@ module.exports = {
     }
   },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
@@ -46,6 +45,6 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: [ '.tsx', '.ts', '.js' ]
+    extensions: ['.tsx', '.ts', '.js'] // 设置扩展，这样导入文件时可以省去写扩展名
   },
-};
+}

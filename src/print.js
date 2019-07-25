@@ -1,4 +1,3 @@
-export default () =>{
-    console.log('Updating clicked')
-  
-  }
+export default () => {
+  console.log('Updating clicked')
+}
