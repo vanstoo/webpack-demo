@@ -7,13 +7,15 @@ module.exports = merge(common, {
   output: {
     filename: '[name].[hash].js',
     chunkFilename: '[name].[hash].js',
-    path: path.resolve(__dirname, '../build')
+    path: path.resolve(__dirname, '../dist')
   },
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: '../build',
-    hot: true
+    port: 9527,
+    contentBase: '../dist',
+    hot: true,
+    historyApiFallback: true // 解决本地刷新404
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin()
